@@ -38,3 +38,23 @@ uncaught exception: SyntaxError: missing ] after element list :
 { "_id" : ObjectId("63e4da56e386f37935f1d013"), "studentName" : "tushi", "section" : [ "a", "b" ], "Subject" : [ "ca", "mca", "bba" ] }
 > db.s.aggregate([{"$match":{"section":"k"}}])
 { "_id" : ObjectId("63e4d9ace386f37935f1d011"), "studentName" : "payal", "section" : [ "a", "k", "m" ], "subject" : [ "Bms", "bba", "bsc" ] }
+db.s.aggregate([{"$match":$and:[{"section":"a"},{'studentName':'payal'}]}])
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:30
+> db.s.aggregate([{"$match":{$and:[{"section":"a"},{'studentName':'payal'}]}}])
+{ "_id" : ObjectId("63e4d9ace386f37935f1d011"), "studentName" : "payal", "section" : [ "a", "k", "m" ], "subject" : [ "Bms", "bba", "bsc" ] }
+> db.s.aggregate([{"$project":{studentName:-1,section:-1}}])
+{ "_id" : ObjectId("63e4d9ace386f37935f1d010"), "studentName" : "siyu", "section" : [ "a", "b", "m" ] }
+{ "_id" : ObjectId("63e4d9ace386f37935f1d011"), "studentName" : "payal", "section" : [ "a", "k", "m" ] }
+{ "_id" : ObjectId("63e4da56e386f37935f1d012"), "studentName" : "piyu", "section" : [ "a", "b" ] }
+{ "_id" : ObjectId("63e4da56e386f37935f1d013"), "studentName" : "tushi", "section" : [ "a", "b" ] }
+> db.s.aggregate([{"$project":{_id:0,studentName:-1}}])
+{ "studentName" : "siyu" }
+{ "studentName" : "payal" }
+{ "studentName" : "piyu" }
+{ "studentName" : "tushi" }
+> db.s.aggregate([{"$project":{_id:0,studentName:1}}])
+{ "studentName" : "siyu" }
+{ "studentName" : "payal" }
+{ "studentName" : "piyu" }
+{ "studentName" : "tushi" }
