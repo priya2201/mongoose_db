@@ -1,0 +1,23 @@
+
+const { MongoClient } = require("mongodb");
+// Connection URI
+const uri ='mongodb+srv://user1:priya1234@cluster0.bjj5ltd.mongodb.net/?retryWrites=true&w=majority';
+// Create a new MongoClient
+const client = new MongoClient(uri);
+async function run() {
+  try {
+    // Connect the client to the server (optional starting in v4.7)
+    await client.connect();
+    // Establish and verify connection
+    await client.db("School_management").command({ ping: 1 });
+    await clientcreateCollection('employees',function(err,res){
+        if(err) throw err
+    })
+    console.log("Connected successfully to server");
+    console.log('Collection is created')
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);

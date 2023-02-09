@@ -1,0 +1,366 @@
+nimap@nimap-HP-ProBook-640-G3:~/Desktop$ mkdir mongoose_db
+nimap@nimap-HP-ProBook-640-G3:~/Desktop$ cd  mongoose_db
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ touch database
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ node database
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ node database
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ node database
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ node database
+
+^Z
+[1]+  Stopped                 node database
+nimap@nimap-HP-ProBook-640-G3:~/Desktop/mongoose_db$ cd ..
+nimap@nimap-HP-ProBook-640-G3:~/Desktop$ cd ..
+nimap@nimap-HP-ProBook-640-G3:~$ mongo
+MongoDB shell version v5.0.14
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("6bebde1f-105e-4f8a-b397-41426395f0a3") }
+MongoDB server version: 5.0.14
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2023-02-08T15:36:35.677+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2023-02-08T15:36:36.841+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> 
+[2]+  Stopped                 mongo
+nimap@nimap-HP-ProBook-640-G3:~$ service mongodb start
+Failed to start mongodb.service: Unit mongodb.service not found.
+nimap@nimap-HP-ProBook-640-G3:~$ service mongodb start
+Failed to start mongodb.service: Unit mongodb.service not found.
+nimap@nimap-HP-ProBook-640-G3:~$ sudo systemctl enable mongod
+[sudo] password for nimap: 
+nimap@nimap-HP-ProBook-640-G3:~$ service mongodb start
+Failed to start mongodb.service: Unit mongodb.service not found.
+nimap@nimap-HP-ProBook-640-G3:~$ sudo systemctl start mongod
+nimap@nimap-HP-ProBook-640-G3:~$  systemctl start mongod
+nimap@nimap-HP-ProBook-640-G3:~$ systemctl enable mongod
+nimap@nimap-HP-ProBook-640-G3:~$ systemctl status mongod
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2023-02-08 15:36:32 IST; 22h ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 1299 (mongod)
+     Memory: 215.1M
+        CPU: 4min 32.312s
+     CGroup: /system.slice/mongod.service
+             └─1299 /usr/bin/mongod --config /etc/mongod.conf
+
+Feb 08 15:36:32 nimap-HP-ProBook-640-G3 systemd[1]: Started MongoDB Database Server.
+nimap@nimap-HP-ProBook-640-G3:~$ mongp
+Command 'mongp' not found, did you mean:
+  command 'monop' from deb bsdgames (2.17-29)
+  command 'monop' from deb mono-devel (6.8.0.105+dfsg-3.2)
+Try: sudo apt install <deb name>
+nimap@nimap-HP-ProBook-640-G3:~$ mongo
+MongoDB shell version v5.0.14
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("5676599d-471d-4db7-bdfe-22b51364681a") }
+MongoDB server version: 5.0.14
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting: 
+        2023-02-08T15:36:35.677+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2023-02-08T15:36:36.841+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use admin
+switched to db admin
+> show dbs;
+admin            0.000GB
+config           0.000GB
+crud_db          0.000GB
+csvimport        0.000GB
+local            0.000GB
+mongo-exercises  0.000GB
+my_db            0.000GB
+one_2_one        0.000GB
+playground       0.000GB
+test             0.000GB
+> use learning
+switched to db learning
+> db
+learning
+> show dbs;
+admin            0.000GB
+config           0.000GB
+crud_db          0.000GB
+csvimport        0.000GB
+local            0.000GB
+mongo-exercises  0.000GB
+my_db            0.000GB
+one_2_one        0.000GB
+playground       0.000GB
+test             0.000GB
+> db.createCollection('demoCollection')
+{ "ok" : 1 }
+> show dbs;
+admin            0.000GB
+config           0.000GB
+crud_db          0.000GB
+csvimport        0.000GB
+learning         0.000GB
+local            0.000GB
+mongo-exercises  0.000GB
+my_db            0.000GB
+one_2_one        0.000GB
+playground       0.000GB
+test             0.000GB
+> db.employee.insert({name:'siya'})
+WriteResult({ "nInserted" : 1 })
+> show collections
+demoCollection
+employee
+> db.employee.find()
+{ "_id" : ObjectId("63e4c3bfe386f37935f1d008"), "name" : "siya" }
+> db.demoCollection.find()
+> db.createCollection('student',{capped:true,size:5242880,max:5})
+{ "ok" : 1 }
+> db.student.insert({registartionno:'1234',nam:'st1',course:{courseName:'mca'.duration:'3 years'},address:{city:"bangalore",state:'ka',country:'india'}})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:84
+> db.student.insert({registartionno:'1234',nam:'st1',course:{courseName:'mca'.duration:'3 years'},address:{city:'bangalore',state:'ka',country:'india'}})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:84
+> db.student.insert({registartionno:'1234',nam:'st1',course:{courseName:"mca",duration:"3 years"},address:{city:"bangalore",state:"ka",country:"india"}})
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("63e4c66ee386f37935f1d009"), "registartionno" : "1234", "nam" : "st1", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+> db.student.insert({_id:111,registartionno:'1234',nam:'st2',course:{courseName:"mca",duration:"3 years"},address:{city:"bangalore",state:"ka",country:"india"}})
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("63e4c66ee386f37935f1d009"), "registartionno" : "1234", "nam" : "st1", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+{ "_id" : 111, "registartionno" : "1234", "nam" : "st2", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+> let empid=[{empId:1,empName:'admin'},{empId:2,empName:'manager'},{empId:3,empName:'sales'}]
+> db.newemp.insert(empid);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 3,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+> let empid=[{empId:4,empName:'admin'},{empId:5,empName:'manager'},{empId:6,empName:'sales'}]
+uncaught exception: SyntaxError: redeclaration of let empid :
+@(shell):1:1
+> let empid=[{empId:4,empName:'admin'},{empId:5,empName:'manager'},{empId:6,empName:'sales'}]
+uncaught exception: SyntaxError: redeclaration of let empid :
+@(shell):1:1
+>  empid=[{empId:4,empName:'admin'},{empId:5,empName:'manager'},{empId:6,empName:'sales'}]
+[
+	{
+		"empId" : 4,
+		"empName" : "admin"
+	},
+	{
+		"empId" : 5,
+		"empName" : "manager"
+	},
+	{
+		"empId" : 6,
+		"empName" : "sales"
+	}
+]
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+> db.newemp.insert(empid);
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 3,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+> db.newemp.update({empName:'admin},{$set:{"empName":"new admin"}})
+uncaught exception: SyntaxError: '' literal not terminated before end of script :
+@(shell):1:65
+> db.newemp.update({empName:'admin'},{$set:{"empName":"new admin"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "manager" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+> db.newemp.update({empName:'manager'},{$set:{"empName":"new admin"}},{multi:true})
+WriteResult({ "nMatched" : 2, "nUpserted" : 0, "nModified" : 2 })
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+> db.newemp.update({empName:'manager2'},{$set:{"empName":"new admin"}},{upsert:true})
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 1,
+	"nModified" : 0,
+	"_id" : ObjectId("63e4cac203ddf0a6dd5a4d21")
+})
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+> db.newemp.update({empName:'qa'},{$set:{"empName":"new qa"}},{upsert:true})
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 1,
+	"nModified" : 0,
+	"_id" : ObjectId("63e4cafa03ddf0a6dd5a4d78")
+})
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+{ "_id" : ObjectId("63e4cafa03ddf0a6dd5a4d78"), "empName" : "new qa" }
+> db.newemp.update({empName:'qa'},{$set:{"empName":"new qa"}},{upsert:true})
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 1,
+	"nModified" : 0,
+	"_id" : ObjectId("63e4cb1703ddf0a6dd5a4da7")
+})
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+{ "_id" : ObjectId("63e4cafa03ddf0a6dd5a4d78"), "empName" : "new qa" }
+{ "_id" : ObjectId("63e4cb1703ddf0a6dd5a4da7"), "empName" : "new qa" }
+> db.newemp.update({empName:'sales'},{$set:{"empName":"new qa"}},{upsert:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00c"), "empId" : 3, "empName" : "new qa" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+{ "_id" : ObjectId("63e4cafa03ddf0a6dd5a4d78"), "empName" : "new qa" }
+{ "_id" : ObjectId("63e4cb1703ddf0a6dd5a4da7"), "empName" : "new qa" }
+> db.newemp.remove({"empName":"new qa"})
+WriteResult({ "nRemoved" : 3 })
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+> db.newemp.find()
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+> db.newemp.find({"empName":"admin"})
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+> db.newemp.find().limit(2);
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+> db.newemp.find().sort({empName:-1})
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4cac203ddf0a6dd5a4d21"), "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+> show collections;
+demoCollection
+employee
+newemp
+student
+> db.student.find()
+{ "_id" : ObjectId("63e4c66ee386f37935f1d009"), "registartionno" : "1234", "nam" : "st1", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+{ "_id" : 111, "registartionno" : "1234", "nam" : "st2", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+> db.student.find({address.city:'bangalore'})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:24
+> db.student.find({'address.city':'bangalore'})
+{ "_id" : ObjectId("63e4c66ee386f37935f1d009"), "registartionno" : "1234", "nam" : "st1", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+{ "_id" : 111, "registartionno" : "1234", "nam" : "st2", "course" : { "courseName" : "mca", "duration" : "3 years" }, "address" : { "city" : "bangalore", "state" : "ka", "country" : "india" } }
+> db.newemp.find({empid:{$gt:2}})
+> db.newemp.find({empId:{$gt:2}})
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+> db.newemp.find({empId:{$lt:6}})
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+> db.newemp.find({empId:{$lte:6}})
+{ "_id" : ObjectId("63e4c848e386f37935f1d00a"), "empId" : 1, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00d"), "empId" : 4, "empName" : "admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00e"), "empId" : 5, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
+> db.newemp.find({empId:{$in:[2,6]}})
+{ "_id" : ObjectId("63e4c848e386f37935f1d00b"), "empId" : 2, "empName" : "new admin" }
+{ "_id" : ObjectId("63e4c961e386f37935f1d00f"), "empId" : 6, "empName" : "sales" }
